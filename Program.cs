@@ -18,13 +18,14 @@ namespace appCadastroDeSeries_desafioDecolaTech2aEdicao
                         inserirSerie();
                         break;
                     case "3":
-                        //atualizarSerie();
+                        atualizarSerie();
                         break;
                     case "4":
-                        //excluirSerie();
+                        excluirSerie();
                         break;
                     case "5":
-                        //visualizarSerie();
+                        visualizarSerie();
+                        break;
                     case "C":
                         Console.Clear();
                         break;
@@ -84,6 +85,55 @@ namespace appCadastroDeSeries_desafioDecolaTech2aEdicao
                                         descricao: entradaDescricao);
             
             repositorio.insere(novaSerie);
+        }
+
+        private static void atualizarSerie()
+        {
+            Console.WriteLine("Digite o Identificado da Série: ");
+            int indiceSerie = int.Parse(Console.ReadLine());
+
+            foreach (int i in Enum.GetValues(typeof(genero)))
+            {
+                Console.WriteLine("{0} - {1}:", i, Enum.GetName(typeof(genero),i));
+            }
+
+            Console.WriteLine("Digite o número do Genêro: ");
+            int entradaGenero = int.Parse(Console.ReadLine());
+
+            Console.WriteLine("Digite o Título da Série: ");
+            string entradaTitulo = Console.ReadLine();
+
+            Console.WriteLine("Digite o Ano de Lançamento da Série: ");
+            int entradaAno = int.Parse(Console.ReadLine());
+
+            Console.WriteLine("Digite a Descrição da Série: ");
+            string entradaDescricao = Console.ReadLine();
+
+            serie atualizaSerie = new serie(id: repositorio.proximoId(), 
+                                        genero: (genero)entradaGenero,
+                                        titulo: entradaTitulo,
+                                        ano: entradaAno,
+                                        descricao: entradaDescricao);
+            
+            repositorio.atualiza(indiceSerie, atualizaSerie);
+        }
+
+        private static void excluirSerie()
+        {
+            Console.WriteLine("Digite o Identificado da Série: ");
+            int indiceSerie = int.Parse(Console.ReadLine());
+
+            repositorio.exclui(indiceSerie);
+        }
+
+        private static void visualizarSerie()
+        {
+            Console.WriteLine("Digite o Identificado da Série: ");
+            int indiceSerie = int.Parse(Console.ReadLine());
+
+            var serie = repositorio.retornaPorId(indiceSerie);
+
+            Console.WriteLine(serie);
         }
 
         private static string obterOpcaoUsuario()
