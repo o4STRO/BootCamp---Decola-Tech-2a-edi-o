@@ -18,13 +18,13 @@ namespace appCadastroDeSeries_desafioDecolaTech2aEdicao
                         inserirSerie();
                         break;
                     case "3":
-                        atualizarSerie();
+                        //atualizarSerie();
                         break;
                     case "4":
-                        excluirSerie();
+                        //excluirSerie();
                         break;
                     case "5":
-                        visualizarSerie();
+                        //visualizarSerie();
                     case "C":
                         Console.Clear();
                         break;
@@ -82,7 +82,8 @@ namespace appCadastroDeSeries_desafioDecolaTech2aEdicao
                                         titulo: entradaTitulo,
                                         ano: entradaAno,
                                         descricao: entradaDescricao);
-
+            
+            repositorio.insere(novaSerie);
         }
 
         private static string obterOpcaoUsuario()
