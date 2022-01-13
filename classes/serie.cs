@@ -31,7 +31,8 @@ namespace appCadastroDeSeries_desafioDecolaTech2aEdicao
             retorno += "Gênero: " + this.genero + Environment.NewLine;
             retorno += "Título: " + this.titulo + Environment.NewLine;
             retorno += "Descrição: " + this.descricao + Environment.NewLine;
-            retorno += "Ano de Inicio: " + this.ano; 
+            retorno += "Ano de Inicio: " + this.ano + Environment.NewLine;
+            retorno += "Excluido: " + this.excluido; 
             
             return retorno;
         }
