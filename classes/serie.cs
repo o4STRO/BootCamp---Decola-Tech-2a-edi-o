@@ -47,6 +47,12 @@ namespace appCadastroDeSeries_desafioDecolaTech2aEdicao
             return this.id;
         }
 
+        public Boolean retornaExcluido()
+        {
+            return this.excluido;
+        }
+
+
         public void excluir()
         {
             this.excluido = true;

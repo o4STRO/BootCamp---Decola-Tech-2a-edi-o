@@ -54,7 +54,12 @@ namespace appCadastroDeSeries_desafioDecolaTech2aEdicao
 
             foreach(var serie in lista)
             {
-                Console.WriteLine("#ID {0}: - {1}", serie.retornaId(), serie.retornaTitulo());
+                var excluido = serie.retornaExcluido();
+                    if(!excluido)
+                    {
+                        Console.WriteLine("#ID {0}: - {1}", serie.retornaId(), serie.retornaTitulo());  
+                    }
+                
             }
         }
 
